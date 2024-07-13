@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        .mainimg {
+            height: 100vh;
+            width: 100vw;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            transform: scale(0);
+            transition: .2s;
+
+        }
+        .showimg{
+            transform: scale(1) !important;
+        }
+
+        .icon {
+            position: relative;
+            left: 50px;
+            top: 0px;
+            font-size: 30px;
+            cursor: pointer;
+        }
+        .mainimg img{
+            height: 500px;
+            width: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="mainimg">
+            <img src="https://picsum.photos/id/267/500/500" alt="">
+            <i class="fa-solid icon fa-xmark" onclick="closebox()"></i>
+        </div>
+        <div class="">
+            <img onclick="getimgsrc(this)" src="https://picsum.photos/id/237/200/300" alt="">
+            <img onclick="getimgsrc(this)" src="https://picsum.photos/id/254/200/300" alt="">
+            <img onclick="getimgsrc(this)" src="https://picsum.photos/id/227/200/300" alt="">
+            <img onclick="getimgsrc(this)" src="https://picsum.photos/id/247/200/300" alt="">
+        </div>
+    </div>
+</body>
+<script>
+    var maindiv = document.querySelector('.mainimg')
+    var mainimg = document.querySelector('.mainimg img')
+    // console.log(mainimg)
+    console.log(mainimg.src)
+
+    function getimgsrc(imgsrc){
+        maindiv.classList.add('showimg')
+        mainimg.src = imgsrc.src;
+    }
+    function closebox(){
+        maindiv.classList.remove('showimg')
+    }
+</script>
+</html>
